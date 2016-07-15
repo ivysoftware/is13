@@ -34,7 +34,7 @@ class model(object):
         self.names  = ['embeddings', 'Wx', 'Wh', 'W', 'bh', 'b', 's0']
         idxs = T.imatrix() # as many columns as context window size/lines as words in the sentence
         x = self.emb[idxs].reshape((idxs.shape[0], de*cs))
-        y    = T.iscalar('y') # label
+        y    = T.iscalar('y') # label  #只有一个label
 
         def recurrence(x_t, s_tm1):
             h_t = T.nnet.sigmoid(T.dot(x_t, self.Wx) + \
